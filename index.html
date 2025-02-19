@@ -31,11 +31,16 @@
     <script>
         async function getAlt() {
             try {
-                let response = await fetch('https://pastebin.com/raw/qf48FiKn');
+                let proxyURL = "https://corsproxy.io/?";
+                let pastebinURL = "https://pastebin.com/raw/qf48FiKn";
+                
+                let response = await fetch(proxyURL + encodeURIComponent(pastebinURL));
                 if (!response.ok) throw new Error('Ошибка сети');
+                
                 let text = await response.text();
                 let lines = text.split('\n').map(line => line.trim()).filter(line => line);
                 if (lines.length === 0) throw new Error('Пустые данные');
+                
                 let randomLine = lines[Math.floor(Math.random() * lines.length)];
                 window.location.href = randomLine;
             } catch (error) {
