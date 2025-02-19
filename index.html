@@ -31,10 +31,7 @@
     <script>
         async function getAlt() {
             try {
-                let proxyURL = "https://corsproxy.io/?";
-                let pastebinURL = "https://pastebin.com/raw/qf48FiKn";
-                
-                let response = await fetch(proxyURL + encodeURIComponent(pastebinURL));
+                let response = await fetch("https://corsproxy.io/?url=https://pastebin.com/raw/qf48FiKn");
                 if (!response.ok) throw new Error('Ошибка сети');
                 
                 let text = await response.text();
