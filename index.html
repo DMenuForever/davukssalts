@@ -31,7 +31,7 @@
     <script>
         async function getAlt() {
             try {
-                let response = await fetch('https://github.com/DMenuForever/davukssalts/raw/refs/heads/main/links.txt');
+                let response = await fetch('https://cdn.jsdelivr.net/gh/DMenuForever/davukssalts@main/links.txt');
                 if (!response.ok) throw new Error('Ошибка сети');
                 let text = await response.text();
                 let lines = text.split('\n').map(line => line.trim()).filter(line => line);
