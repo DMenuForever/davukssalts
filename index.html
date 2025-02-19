@@ -12,6 +12,7 @@
             align-items: center;
             background: linear-gradient(to bottom, #8a2be2, #000);
             margin: 0;
+            position: relative;
         }
         button {
             font-size: 24px;
@@ -26,6 +27,26 @@
         }
         button:hover {
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+        }
+        .footer-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
+            }
         }
     </style>
     <script>
@@ -48,5 +69,6 @@
 </head>
 <body>
     <button onclick="getAlt()">Get Alt</button>
+    <div class="footer-text">Made by Davuks</div>
 </body>
 </html>
