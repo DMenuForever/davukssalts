@@ -31,7 +31,7 @@
     <script>
         async function getAlt() {
             try {
-                let response = await fetch('https://pastebin.com/raw/qf48FiKn');
+                let response = await fetch('https://paste.ee/r/Wl1EpIRf/0');
                 let text = await response.text();
                 let lines = text.split('\n').filter(line => line.trim() !== '');
                 let randomLine = lines[Math.floor(Math.random() * lines.length)];
