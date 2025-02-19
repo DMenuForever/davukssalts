@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Alt</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #8a2be2, #000);
+            margin: 0;
+        }
+        button {
+            font-size: 24px;
+            padding: 15px 30px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+    <script>
+        async function getAlt() {
+            try {
+                let response = await fetch('https://pastebin.com/raw/qf48FiKn');
+                let text = await response.text();
+                let lines = text.split('\n').filter(line => line.trim() !== '');
+                let randomLine = lines[Math.floor(Math.random() * lines.length)];
+                window.location.href = randomLine;
+            } catch (error) {
+                alert('Ошибка загрузки данных!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="getAlt()">Get Alt</button>
+</body>
+</html>
